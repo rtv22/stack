@@ -14,6 +14,7 @@ public:
 	void swap();
 	void swap(const stack&);
 	T pop();
+	stack<T>& operator=(stack<T> const &)
 	~stack();
 private:
 	T * array_;
@@ -104,4 +105,13 @@ void stack<T>::print() const
 {
 	for (int i = 0; i < array_size_; i++)
 		cout << array_[i];
+}
+
+template<typename T>
+stack<T>& stack<T>::operator=(stack<T> const & tmp)
+{
+	delete[] array_;
+	array_ = swap(tmp);
+	array_size_ = tmp.array_size_;
+	count_ = tmp.count_;
 }
