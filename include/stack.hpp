@@ -55,6 +55,7 @@ void stack<T>::swap(const stack& x)
 	T * temp = new T[x.array_size_]();
 	std::copy(x, x + x.count_, temp);
 	array_ = temp;
+	return temp;
 }
 
 template<typename T> 
