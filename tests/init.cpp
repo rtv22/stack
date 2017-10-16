@@ -3,8 +3,8 @@
 
 SCENARIO("init", "[init]") {
 	stack<int> A;
-	REQUIRE(array_size_() == 0);
-	REQUIRE(count_() == 0);
+	REQUIRE(A.array_size_() == 0);
+	REQUIRE(A.count_() == 0);
 }
 
 SCENARIO("Push", "[push]") {
