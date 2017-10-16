@@ -11,7 +11,7 @@ public:
 	size_t count() const;
 	void print()const;
 	void push(T const &);
-	void swap(stack<T>&);
+	void swap(const stack<T>&);
 	T pop();
 	stack<T>& operator=(const stack<T> &);
 	~stack();
