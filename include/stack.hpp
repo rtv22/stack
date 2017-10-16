@@ -11,7 +11,7 @@ public:
 	size_t count() const;
 	void print()const;
 	void push(T const &);
-	void swap();
+	void swap(const stack&);
 	T pop();
 	~stack();
 private:
