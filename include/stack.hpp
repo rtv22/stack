@@ -11,6 +11,7 @@ public:
 	size_t count() const;
 	void print()const;
 	void push(T const &);
+	void swap();
 	void swap(const stack&);
 	T pop();
 	~stack();
@@ -53,6 +54,13 @@ void stack<T>::swap(const stack& x)
 {
 	T * temp = new T[x.array_size_]();
 	std::copy(x, x + x.count_, temp);
+	array_ = temp;
+}
+
+template<typename T> 
+void stack<T>::swap() {
+	T* temp = new T[array_size_]();
+	std::copy(array_, array_ + count_, temp);
 	array_ = temp;
 }
 
