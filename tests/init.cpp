@@ -3,7 +3,6 @@
 
 SCENARIO("init", "[init]") {
 	stack<int> A;
-	REQUIRE(A.array_size_() == 0);
 	REQUIRE(A.count_() == 0);
 }
 
