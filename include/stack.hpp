@@ -86,9 +86,7 @@ T stack<T>::pop()
 	if (count_ == 0) 
 		throw "Stack is empty" ;
 	count_--;
-	T x = array_[count_];
-	swap();
-	return x;
+	return array_[count_];
 }
 
 template <typename T>
