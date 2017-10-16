@@ -69,7 +69,7 @@ void stack<T>::push(T const &value)
 	{
 		array_size_ = array_size_ * 2;
 		T *s1 = new T[array_size_];
-		std::copy(array_, array_ + count_, ptr;
+		std::copy(array_, array_ + count_, s1;
 		//for (int i = 0; i < count_; i++)
 		//std::copy(int i = 0; i < count; i++)
 		//	s1[i] = array_[i];
