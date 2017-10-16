@@ -4,6 +4,6 @@
 
 stack methods:
 - [X] init
-- [ ] Pop
-- [ ] Push
-- [ ] Oper=
+- [X] Pop
+- [X] Push
+- [X] Oper=
