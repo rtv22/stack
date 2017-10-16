@@ -38,9 +38,8 @@ stack<T>::stack(const stack<T>& copy)
 {
 	array_size_ = copy.array_size_;
 	count_ = copy.count_;
-	array_ = new T*[array_size_];
-	for (int i = 0; i < array_size_; i++)
-		array_[array_size_] = copy.array_[array_size_];
+	array_ = new T[count_];
+	std::copy(copy.array_, copy.array_ + copy.count_, array_);
 }
 
 template<class T>
