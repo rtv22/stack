@@ -14,7 +14,7 @@ public:
 	void swap();
 	void swap(const stack&);
 	T pop();
-	stack<T>& operator=(stack<T> const &)
+	stack<T>& operator=(stack<T> const &);
 	~stack();
 private:
 	T * array_;
