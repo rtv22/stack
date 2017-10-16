@@ -21,7 +21,7 @@ SCENARIO("Pop", "[pop]") {
 	REQUIRE(A.count() == 1);
 }
 
-SCENARIO("oper=", "[oper=]"){
+SCENARIO("oper=", "[oper]"){
 	stack<int> A;
 	A.push(1);
 	A.push(2);
