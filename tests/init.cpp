@@ -11,7 +11,7 @@ SCENARIO("Push", "[push]") {
 	stack<int> A;
 	A.push(1);
 	A.push(2);
-	REQUIRE(REQUIRE(A.count_() == 2));
+	REQUIRE(A.count_() == 2));
 }
 
 SCENARIO("Pop", "[pop]") {
