@@ -11,7 +11,7 @@ public:
 	size_t count() const;
 	void print()const;
 	void push(T const &);
-	void swap()
+	void swap();
 	T pop();
 	~stack();
 private:
@@ -51,7 +51,7 @@ size_t stack<T>::count() const
 template<typename T> 
 void stack<T>::swap() {
 	T * temp = new T[array_size_]();
-	std::copy(array_, array_ + count_, stdext::checked_array_iterator<T*>(temp, array_size_));
+	std::copy(array_, array_ + count_, stdext::checked_array_iterator<T *>(temp, array_size_));
 	array_ = temp;
 }
 
