@@ -49,7 +49,7 @@ size_t stack<T>::count() const
 }
 
 template<typename T> 
-void stack<T>::swap(const stack& x) 
+void stack<T>::swap(stack& x) 
 {
 	std::swap(x.array_size_, array_size_);
 	std::swap(count_, x.count_);
