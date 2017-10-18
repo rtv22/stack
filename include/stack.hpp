@@ -8,11 +8,13 @@ class stack
 public:
 	stack();
 	stack(const stack<T> &);
-	size_t count() const;
-	void print()const;
-	void push(T const &);
-	void swap(stack<T>&);
-	T pop();
+	size_t count() const; /*noexcept*/
+	void print()const; /*noexcept*/
+	void push(T const &); /*basic*/
+	void swap(stack<T>&); /*strong*/
+	T pop(); /*strong*/
+	T top(); /*strong*/
+	bool empty() const; 
 	stack<T>& operator=(stack<T> &);
 	~stack();
 private:
@@ -48,12 +50,28 @@ size_t stack<T>::count() const
 	return count_;
 }
 
+template <typename T>
+bool stack<T>::empty() const 
+{
+	return (count_ == 0);
+}
+
 template<typename T> 
 void stack<T>::swap(stack& x) 
 {
 	std::swap(x.array_size_, array_size_);
 	std::swap(count_, x.count_);
 	std::swap(x.array_, array_);
+}
+
+template <typename T>
+T stack<T>::top()
+{
+	if (empty())
+	{
+		std::cout << "Stack is empty!";
+	}
+	return array_[count_ - 1];
 }
 
 template <typename T>
