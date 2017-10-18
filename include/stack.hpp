@@ -11,11 +11,11 @@ public:
 	size_t count() const; /*noexcept*/
 	void print()const; /*noexcept*/
 	void push(T const &); /*basic*/
-	void swap(stack<T>&); /*strong*/
+	void swap(stack<T>&); /*basic*/
 	T pop(); /*strong*/
 	T top(); /*strong*/
-	bool empty() const; 
-	stack<T>& operator=(stack<T> &);
+	bool empty() const; /*noexcept*/
+	stack<T>& operator=(stack<T> &); /*basic*/
 	~stack();
 private:
 	T * array_;
