@@ -6,17 +6,17 @@ template <typename T>
 class stack
 {
 public:
-	stack();
+	stack();/*strong*/
 	stack(const stack<T> &);
 	size_t count() const; /*noexcept*/
-	void print()const; /*noexcept*/
+	void print()const;
 	void push(T const &); /*basic*/
-	void swap(stack<T>&); /*basic*/
-	T pop(); /*strong*/
+	void swap(stack<T>&); /*noexcept*/
+	void pop(); /*no safety*/
 	T top(); /*strong*/
 	bool empty() const; /*noexcept*/
 	stack<T>& operator=(stack<T> &); /*basic*/
-	~stack();
+	~stack();/*noexcept*/
 private:
 	T * array_;
 	size_t array_size_;
@@ -98,7 +98,7 @@ void stack<T>::push(T const &value)
 }
 
 template <typename T>
-T stack<T>::pop()
+void stack<T>::pop()
 {
 	if (count_ == 0) 
 		throw "Stack is empty" ;
