@@ -9,7 +9,7 @@ public:
 	stack();/*noexept*/
 	stack(const stack<T> &);/*no safety*/
 	size_t count() const; /*noexcept*/
-	void print()const;/*strong*/
+	void print()const;/*no safety*/
 	void push(T const &); /*no safety*/
 	void swap(stack<T>&); /*noexcept*/
 	void pop(); /*no safety*/
