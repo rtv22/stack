@@ -15,7 +15,7 @@ public:
 	void pop(); /*no safety*/
 	T top(); /*strong*/
 	bool empty() const; /*noexcept*/
-	stack<T>& operator=(stack<T> &); /*basic*/
+	stack<T>& operator=(stack<T> &); /*no safety*/
 	~stack();/*noexcept*/
 private:
 	T * array_;
