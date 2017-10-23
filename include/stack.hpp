@@ -6,11 +6,11 @@ template <typename T>
 class stack
 {
 public:
-	stack();/*strong*/
-	stack(const stack<T> &);
+	stack();/*noexept*/
+	stack(const stack<T> &);/*no safety*/
 	size_t count() const; /*noexcept*/
-	void print()const;
-	void push(T const &); /*basic*/
+	void print()const;/*strong*/
+	void push(T const &); /*no safety*/
 	void swap(stack<T>&); /*noexcept*/
 	void pop(); /*no safety*/
 	T top(); /*strong*/
