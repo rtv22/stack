@@ -7,15 +7,15 @@ class stack
 {
 public:
 	stack();/*noexept*/
-	stack(const stack<T> &);/*no safety*/
+	stack(const stack<T> &);/*strong*/
 	size_t count() const; /*noexcept*/
-	void print()const;/*no safety*/
+	void print()const;/*noexcept*/
 	void push(T const &); /*no safety*/
 	void swap(stack<T>&); /*noexcept*/
-	void pop(); /*no safety*/
+	void pop(); /*strong*/
 	T top(); /*strong*/
 	bool empty() const; /*noexcept*/
-	stack<T>& operator=(stack<T> &); /*no safety*/
+	stack<T>& operator=(stack<T> &); /*noexcept*/
 	~stack();/*noexcept*/
 private:
 	T * array_;
@@ -38,10 +38,15 @@ stack<T>::~stack()
 template <typename T> 
 stack<T>::stack(const stack<T>& copy)
 {
-	array_size_ = copy.array_size_;
-	count_ = copy.count_;
-	array_ = new T[count_];
-	std::copy(copy.array_, copy.array_ + copy.count_, array_);
+	if (count_ > 0) {
+		array_size_ = copy.array_size_;
+		count_ = copy.count_;
+		array_ = new T[count_];
+		std::copy(copy.array_, copy.array_ + copy.count_, array_);
+	}
+	else{
+		array_ = nullptr;
+	}
 }
 
 template<class T>
@@ -69,7 +74,7 @@ T stack<T>::top()
 {
 	if (empty())
 	{
-		std::cout << "Stack is empty!";
+		throw << "Stack is empty!";
 	}
 	return array_[count_ - 1];
 }
@@ -84,14 +89,16 @@ void stack<T>::push(T const &value)
 	}
 	else if (array_size_ == count_)
 	{
-		array_size_ = array_size_ * 2;
-		T *s1 = new T[array_size_];
-		std::copy(array_, array_ + count_, s1);
-		//for (int i = 0; i < count_; i++)
-		//std::copy(int i = 0; i < count; i++)
-		//	s1[i] = array_[i];
-		delete[] array_;
-		array_ = s1;
+		if (array_size_ > 0) {
+			array_size_ = array_size_ * 2;
+			T *s1 = new T[array_size_];
+			std::copy(array_, array_ + count_, s1);
+			delete[] array_;
+			array_ = s1;
+		}
+		else{
+			s1 = nullptr;
+		}
 	}
 	array_[count_] = value;
 	count_++;
@@ -100,7 +107,7 @@ void stack<T>::push(T const &value)
 template <typename T>
 void stack<T>::pop()
 {
-	if (count_ == 0) 
+	if (empty()) 
 		throw "Stack is empty" ;
 	count_--;
 }
@@ -117,7 +124,8 @@ stack<T>& stack<T>::operator=(stack<T> & tmp)
 {
 	if (this != &tmp)
 	{
-		stack(tmp).swap(*this);
+		stack other(tmp);
+		swap(*this, other);
 	}
 	return *this;
 }
