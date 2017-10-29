@@ -43,8 +43,6 @@ stack<T>::stack(const stack<T>& copy)
 		count_ = copy.count_;
 		array_ = new T[count_];
 		std::copy(copy.array_, copy.array_ + copy.count_, array_);
-	}else{
-		array_ = nullptr;
 	}
 }
 	
