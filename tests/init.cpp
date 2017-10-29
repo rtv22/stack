@@ -26,8 +26,7 @@ SCENARIO("oper=", "[oper]"){
 	stack<int> B;
 	A.push(1);
 	A.push(2);
-	B.push(3);
 	REQUIRE(A.count() == 2);
 	B = A;
-	REQUIRE(B.count() == 3);
+	REQUIRE(B.count() == 2);
 }
