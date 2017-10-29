@@ -45,7 +45,9 @@ stack<T>::stack(const stack<T>& copy)
 		std::copy(copy.array_, copy.array_ + copy.count_, array_);
 	}else{
 		array_ = nullptr;
+	}
 }
+	
 
 template<class T>
 size_t stack<T>::count() const
