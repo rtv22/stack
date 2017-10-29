@@ -10,7 +10,7 @@ public:
 	stack(const stack<T> &);/*strong*/
 	size_t count() const; /*noexcept*/
 	void print()const;/*noexcept*/
-	void push(T const &); /*no safety*/
+	void push(T const &); /*strong*/
 	void swap(stack<T>&); /*noexcept*/
 	void pop(); /*strong*/
 	T top(); /*strong*/
@@ -74,7 +74,7 @@ T stack<T>::top()
 {
 	if (empty())
 	{
-		throw << "Stack is empty!";
+		throw "Stack is empty!";
 	}
 	return array_[count_ - 1];
 }
@@ -95,8 +95,7 @@ void stack<T>::push(T const &value)
 			std::copy(array_, array_ + count_, s1);
 			delete[] array_;
 			array_ = s1;
-		}
-		else{
+		}else{
 			s1 = nullptr;
 		}
 	}
