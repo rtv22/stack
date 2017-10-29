@@ -23,8 +23,11 @@ SCENARIO("Pop", "[pop]") {
 
 SCENARIO("oper=", "[oper]"){
 	stack<int> A;
+	stack<int> B;
 	A.push(1);
 	A.push(2);
-	stack<int> B = A;
-	REQUIRE(A.count() == B.count());
+	B.push(3);
+	REQUIRE(A.count() == 2);
+	B = A;
+	REQUIRE(A.count() == 3);
 }
