@@ -121,8 +121,8 @@ stack<T>& stack<T>::operator=(stack<T> & tmp)
 {
 	if (this != &tmp)
 	{
-		stack other(tmp);
-		swap(*this, other);
+		stack<T> other(tmp);
+		other.swap(*this);
 	}
 	return *this;
 }
