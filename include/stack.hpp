@@ -44,7 +44,7 @@ stack<T>::stack(const stack<T>& copy)
 	array_ = tmp;
 	 try 
 	{
-	    std::copy(obj.array_, obj.array_ + count_, array_);
+	    std::copy(copy.array_, copy.array_ + count_, array_);
 	}catch(...){
 		delete[] array_;
 	}
