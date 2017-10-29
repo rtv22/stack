@@ -29,5 +29,5 @@ SCENARIO("oper=", "[oper]"){
 	B.push(3);
 	REQUIRE(A.count() == 2);
 	B = A;
-	REQUIRE(A.count() == 3);
+	REQUIRE(B.count() == 3);
 }
