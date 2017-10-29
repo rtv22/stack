@@ -42,7 +42,12 @@ stack<T>::stack(const stack<T>& copy)
 	count_ = copy.count_;
 	array_size_ = copy.array_size_;
 	array_ = tmp;
-	std::copy(copy.array_, copy.array_ + count_, array_);
+	 try 
+	{
+	    std::copy(obj.array_, obj.array_ + count_, array_);
+	}catch(...){
+		delete[] array_;
+	}
 }
 	
 
@@ -79,23 +84,14 @@ T stack<T>::top()
 template <typename T>
 void stack<T>::push(T const &value)
 {
-	if (array_size_ == 0)
+	if (array_size_ == count_) 
 	{
-		array_size_ = 1;
-		array_ = new T[array_size_];
-	}
-	else if (array_size_ == count_)
-	{
-		if (array_size_ > 0) {
-			array_size_ = array_size_ * 2;
-			T *s1 = new T[array_size_];
-			std::copy(array_, array_ + count_, s1);
-			delete[] array_;
-			array_ = s1;
-		}
+		array_size_ *= 2;
+		stack<T> temp(*this);
+		swap(temp);
 	}
 	array_[count_] = value;
-	count_++;
+	++count_;
 }
 
 template <typename T>
