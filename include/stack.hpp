@@ -38,12 +38,11 @@ stack<T>::~stack()
 template <typename T> 
 stack<T>::stack(const stack<T>& copy)
 {
-	if (count_ > 0) {
-		array_size_ = copy.array_size_;
-		count_ = copy.count_;
-		array_ = new T[count_];
-		std::copy(copy.array_, copy.array_ + copy.count_, array_);
-	}
+	T *tmp = new T[copy.array_size_];
+	count_ = copy.count_;
+	array_size_ = copy.array_size_;
+	array_ = tmp;
+	std::copy(copy.array_, copy.array_ + count_, array_);
 }
 	
 
