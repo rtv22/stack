@@ -95,8 +95,6 @@ void stack<T>::push(T const &value)
 			std::copy(array_, array_ + count_, s1);
 			delete[] array_;
 			array_ = s1;
-		}else{
-			s1 = nullptr;
 		}
 	}
 	array_[count_] = value;
