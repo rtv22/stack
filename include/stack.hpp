@@ -43,7 +43,8 @@ stack<T>::stack(const stack<T>& copy)
 		count_ = copy.count_;
 		array_ = new T[count_];
 		std::copy(copy.array_, copy.array_ + copy.count_, array_);
-	}
+	}else{
+		array_ = nullptr;
 }
 
 template<class T>
@@ -114,12 +115,12 @@ void stack<T>::print() const
 }
 
 template<typename T>
-stack<T>& stack<T>::operator=(stack<T> & tmp)
+stack<T>& stack<T>::operator=(stack<T> & other)
 {
-	if (this != &tmp)
+	if (this != &other)
 	{
-		stack<T> other(tmp);
-		other.swap(*this);
+		stack<T> tmp(other);
+		tmp.swap(*this);
 	}
 	return *this;
 }
