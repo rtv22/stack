@@ -42,12 +42,11 @@ stack<T>::stack(const stack<T>& copy)
 	count_ = copy.count_;
 	array_size_ = copy.array_size_;
 	array_ = tmp;
-	 try 
-	{
-	    std::copy(copy.array_, copy.array_ + count_, array_);
-	}catch(...){
+	if(array_ == nullptr){
+		throw "error";
 		delete[] array_;
 	}
+	std::copy(copy.array_, copy.array_ + count_, array_);
 }
 	
 
