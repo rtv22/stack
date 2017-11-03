@@ -16,7 +16,7 @@ public:
 	void print()const;/*noexcept*/
 	void push(T const &); /*strong*/
 	void swap(stack<T>&); /*noexcept*/
-	auto pop()->std::shared_ptr<T>; /*strong*/
+	std::shared_ptr<T> pop(); /*strong*/
 	/*T top(); strong*/
 	bool empty() const; /*noexcept*/
 	stack<T>& operator=(stack<T> &); /*noexcept*/
