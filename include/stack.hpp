@@ -110,6 +110,8 @@ auto stack<T>::pop() -> std::shared_ptr<T>
 	if (empty()) 
 		throw "Stack is empty" ;
 	count_--;
+	auto top = std::make_shared<T>(*array_);
+	return top;
 }
 
 template <typename T>
