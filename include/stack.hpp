@@ -2,6 +2,8 @@
 #include <mutex>
 #include <thread>
 #include <memory>
+#include <utility>
+#include <new>
 
 using namespace std;
 
