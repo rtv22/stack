@@ -122,7 +122,7 @@ void stack<T>::print() const
 template<typename T>
 stack<T>& stack<T>::operator=(stack<T> & other)
 {
-	std::lock_guard<std::mutex> lock(obj.mutex_);
+	std::lock_guard<std::mutex> lock(other.mutex_);
 	if (this != &other)
 	{
 		stack<T> tmp(other);
