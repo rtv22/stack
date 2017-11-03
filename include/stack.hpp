@@ -1,11 +1,10 @@
 #include <iostream>
+#include <algorithm>
+#include <utility>
+#include <new>
 #include <mutex>
 #include <thread>
 #include <memory>
-#include <utility>
-#include <new>
-
-using namespace std;
 
 template <typename T>
 class stack
@@ -118,6 +117,7 @@ auto stack<T>::pop() -> std::shared_ptr<T>
 template <typename T>
 void stack<T>::print() const
 {
+	std::lock_guard<std::mutex> lock(mutex_);
 	for (int i = 0; i < array_size_; i++)
 		cout << array_[i];
 }
