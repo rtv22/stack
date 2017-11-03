@@ -119,7 +119,7 @@ void stack<T>::print() const
 {
 	std::lock_guard<std::mutex> lock(mutex_);
 	for (int i = 0; i < array_size_; i++)
-		cout << array_[i];
+		std::cout << array_[i];
 }
 
 template<typename T>
